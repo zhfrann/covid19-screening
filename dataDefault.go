@@ -9,7 +9,7 @@ type patient_data struct {
 
 type patients [NMAX]patient_data
 
-var patients_length int = 5
+var patients_length int = 0
 
 func defaultDataPatient(patient_array *patients) {
 	patient_array[0].id = 1
@@ -36,4 +36,6 @@ func defaultDataPatient(patient_array *patients) {
 	patient_array[4].nama = "Alexandra Collin"
 	patient_array[4].email = "alex@gmail.com"
 	patient_array[4].no_telp = 6285423895678
+
+	patients_length = 5
 }
