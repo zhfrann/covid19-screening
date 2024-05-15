@@ -5,6 +5,7 @@ import (
 )
 
 var patient patients
+var patients_length int = 0
 
 func main() {
 	var option_choose int
@@ -12,12 +13,21 @@ func main() {
 
 	defaultDataPatient(&patient) //aktifkan jika ingin menggunakan data default
 
+	welcomeMessage()
 	menuMessage()
 	fmt.Scan(&option_choose)
 
 	for option_valid {
 		if option_choose == 1 {
 			showData(patient, patients_length)
+
+			//* Ordering data
+			// orderMenuMessage()
+			// fmt.Scan(&option_choose)
+			// if option_choose == 1 {
+
+			// }
+
 
 			menuMessage()
 			fmt.Scan(&option_choose)
@@ -34,11 +44,13 @@ func main() {
 }
 
 func menuMessage() {
-	fmt.Println("============================")
-	fmt.Println("====   Selamat Datang   ====")
-	fmt.Println("============================\n")
-
 	fmt.Println("Menu opsi :")
 	fmt.Println("1. Lihat data pasien\n2. Masukkan data pasien\n")
 	fmt.Print("Pilih opsi : ")
+}
+
+func welcomeMessage() {
+	fmt.Println("\n============================")
+	fmt.Println("====   Selamat Datang   ====")
+	fmt.Println("============================\n")
 }

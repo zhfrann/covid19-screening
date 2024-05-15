@@ -10,8 +10,6 @@ type patient_data struct {
 
 type patients [NMAX]patient_data
 
-var patients_length int = 0
-
 func defaultDataPatient(patient_array *patients) {
 	patient_array[0].id = 1
 	patient_array[0].nama = "Jason_Setiawan"
