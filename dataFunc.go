@@ -174,12 +174,12 @@ func filter_array(patient_array patients, filtered_patient_array *patients, filt
 }
 
 func deleteData(patient_array *patients, patient_length *int, id_patient int) bool {
-	// fmt.Printf("\n\nPanjang array sebelum dihapus = %d\n\n", *patient_length)
 	if (id_patient <= 0) || id_patient > patient_array[*patient_length-1].id {
 		fmt.Println("Data pasien yang ingin dihapus tidak ada didalam rentang data pasien")
 		return false
 	} else {
 		var newLength, indexLoop int
+		indexLoop = 0
 
 		for indexLoop = 0; indexLoop < *patient_length; indexLoop++ {
 			if patient_array[indexLoop].id != id_patient {
@@ -187,9 +187,13 @@ func deleteData(patient_array *patients, patient_length *int, id_patient int) bo
 				newLength++
 			}
 		}
-		*patient_length = newLength
-		fmt.Printf("\n\nPanjang array sekarang = %d\n\n", *patient_length)
-		return true
+
+		if newLength < *patient_length {
+			*patient_length = newLength
+			return true
+		} else {
+			return false
+		}
 	}
 }
 
