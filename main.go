@@ -105,16 +105,26 @@ func main() {
 				// Cari data pasien
 			} else if show_data_option == 4 {
 				// Edit data pasien
-				var id_patient int
+				var id_patient, idx_patient, itr int
+				idx_patient = -1
+				itr = 0
 
 				fmt.Println("\nEdit Data Pasien dengan ID : ")
 				fmt.Scan(&id_patient)
 
-				if id_patient < patients_length {
+				// Sequential Search
+				for itr < patients_length {
+					if patient[itr].id == id_patient {
+						idx_patient = itr
+					}
+					itr++
+				}
+
+				if idx_patient != -1 {
 					editDataPatient(&patient, patients_length, id_patient-1)
 					editSymptomsPatient(&patient, patients_length, id_patient-1)
 				} else {
-					fmt.Println("ID Pasien diluar rentang data pasien")
+					fmt.Println("ID Pasien tidak ditemukan")
 				}
 			} else if show_data_option == 5 {
 				// Hapus data pasien
