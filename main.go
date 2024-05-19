@@ -89,7 +89,7 @@ func main() {
 						// Filter data berdasarkan bobot prioritas
 					} else if filtered_option_choose == 3 {
 						fmt.Println("\nOpsi Penampilan Data : ")
-						fmt.Println("1. Tampilkan semua data\n2. Filter Data\n3. Cari Data\n4. Kembali")
+						fmt.Println("1. Tampilkan semua data\n2. Filter Data\n3. Cari Data\n4. Edit Data\n5. Hapus Data\n6. Kembali")
 						fmt.Print("Masukan : ")
 						fmt.Scan(&show_data_option)
 					} else {
@@ -123,7 +123,7 @@ func main() {
 				fmt.Println("\nInputkan data id pasien yang ingin dihapus : ")
 				fmt.Scan(&id_delete)
 
-				if deleteData(&patient, &patients_length, id_delete-1) == true {
+				if deleteData(&patient, &patients_length, id_delete) == true {
 					fmt.Printf("Data pasien id %d berhasil dihapus\n", id_delete)
 				} else {
 					fmt.Printf("Data pasien id %d gagal dihapus\n", id_delete)

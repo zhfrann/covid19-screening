@@ -126,9 +126,9 @@ func showData(patient_array patients, patient_length int) {
 	if patient_length == 0 {
 		fmt.Println("---- Data kosong ----")
 	} else {
-		fmt.Printf("%2s %20s %5s %20s %20s %15s %13s %13s %13s %8s\n", "ID", "Nama", "Umur", "Email", "No. Telp", "Kontak Erat", "suspect", "Probable", "Konfirmasi", "Bobot")
+		fmt.Printf("%2s %20s %8s %20s %20s %15s %13s %13s %13s %8s\n", "ID", "Nama", "Umur", "Email", "No. Telp", "Kontak Erat", "suspect", "Probable", "Konfirmasi", "Bobot")
 		for i = 0; i < patient_length; i++ {
-			fmt.Printf("%2d %20s %5d %20s %20d", patient_array[i].id, patient_array[i].nama, patient_array[i].umur, patient_array[i].email, patient_array[i].no_telp)
+			fmt.Printf("%2d %20s %8d %20s %20d", patient_array[i].id, patient_array[i].nama, patient_array[i].umur, patient_array[i].email, patient_array[i].no_telp)
 			fmt.Printf("%16t %13t %13t %13t %8d\n", patient_array[i].kontak_erat, patient_array[i].suspect, patient_array[i].probable, patient_array[i].konfirmasi, patient_array[i].bobot)
 		}
 	}
@@ -173,20 +173,22 @@ func filter_array(patient_array patients, filtered_patient_array *patients, filt
 	*filtered_patient_length = idx
 }
 
-func deleteData(patient_array *patients, patient_length *int, idx_patient int) bool {
-	if (idx_patient < 0) || idx_patient >= *patient_length {
+func deleteData(patient_array *patients, patient_length *int, id_patient int) bool {
+	// fmt.Printf("\n\nPanjang array sebelum dihapus = %d\n\n", *patient_length)
+	if (id_patient <= 0) || id_patient > patient_array[*patient_length-1].id {
 		fmt.Println("Data pasien yang ingin dihapus tidak ada didalam rentang data pasien")
 		return false
 	} else {
 		var newLength, indexLoop int
 
 		for indexLoop = 0; indexLoop < *patient_length; indexLoop++ {
-			if idx_patient != indexLoop {
+			if patient_array[indexLoop].id != id_patient {
 				assign_value(*&patient_array, *patient_array, newLength, indexLoop)
 				newLength++
 			}
 		}
 		*patient_length = newLength
+		fmt.Printf("\n\nPanjang array sekarang = %d\n\n", *patient_length)
 		return true
 	}
 }
@@ -194,7 +196,7 @@ func deleteData(patient_array *patients, patient_length *int, idx_patient int) b
 func editDataPatient(patient_array *patients, patient_length int, idx_patient int) {
 	fmt.Printf("\nUbah data pasien %s (Index Data Pasien : %d)\n", patient_array[idx_patient].nama, idx_patient+1)
 
-	fmt.Printf("\nMasukkan data untuk pasien ke-%d (Gunakan _ sebagai pengganti spasi)\n", idx_patient+1)
+	fmt.Printf("Masukkan data untuk pasien ke-%d (Gunakan _ sebagai pengganti spasi)\n", idx_patient+1)
 	fmt.Print("Masukkan Nama : ")
 	fmt.Scan(&patient_array[idx_patient].nama)
 	fmt.Print("Masukkan Umur : ")
@@ -209,7 +211,7 @@ func editSymptomsPatient(patient_array *patients, patient_length int, idx_patien
 	var patient_input string
 
 	fmt.Printf("\nPerbarui data gejala pasien %s (Index Data Pasien : %d)\n", patient_array[idx_patient].nama, idx_patient+1)
-
+	patient_array[idx_patient].bobot = 0
 	// Pertanyaan 1
 	fmt.Println("Apakah anda pernah bertemu dengan orang yang memiliki ciri-ciri seperti ISPA, demam, atau batuk ?")
 	fmt.Print("Masukan (Y/N) : ")
