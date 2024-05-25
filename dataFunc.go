@@ -16,7 +16,9 @@ func insertData(patient_array *patients, patient_length *int) {
 		i = *patient_length
 
 		fmt.Printf("\nMasukkan data untuk pasien ke-%d (Gunakan _ sebagai pengganti spasi)\n", i+1)
-		patient_array[i].id = i + 1
+		// patient_array[i].id = i + 1
+		patient_array[i].id = patient_array[*patient_length-1].id + 1
+		patient_array[i].bobot = 0
 		fmt.Print("Masukkan Nama : ")
 		fmt.Scan(&patient_array[i].nama)
 		fmt.Print("Masukkan Umur : ")
@@ -126,26 +128,33 @@ func showData(patient_array patients, patient_length int) {
 	if patient_length == 0 {
 		fmt.Println("---- Data kosong ----")
 	} else {
-		fmt.Printf("%2s %20s %8s %20s %20s %15s %13s %13s %13s %8s\n", "ID", "Nama", "Umur", "Email", "No. Telp", "Kontak Erat", "suspect", "Probable", "Konfirmasi", "Bobot")
+		fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+		fmt.Printf("| %-2s | %-20s | %-8s | %-20s | %-20s | %-15s | %-13s | %-13s | %-13s | %-5s |\n", "ID", "Nama", "Umur", "Email", "No. Telp", "Kontak Erat", "suspect", "Probable", "Konfirmasi", "Bobot")
+		fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
 		for i = 0; i < patient_length; i++ {
-			fmt.Printf("%2d %20s %8d %20s %20d", patient_array[i].id, patient_array[i].nama, patient_array[i].umur, patient_array[i].email, patient_array[i].no_telp)
-			fmt.Printf("%16t %13t %13t %13t %8d\n", patient_array[i].kontak_erat, patient_array[i].suspect, patient_array[i].probable, patient_array[i].konfirmasi, patient_array[i].bobot)
+			fmt.Printf("| %-2d | %-20s | %-8d | %-20s | %-20d |", patient_array[i].id, patient_array[i].nama, patient_array[i].umur, patient_array[i].email, patient_array[i].no_telp)
+			fmt.Printf(" %-15t | %-13t | %-13t | %-13t | %-5d |\n", patient_array[i].kontak_erat, patient_array[i].suspect, patient_array[i].probable, patient_array[i].konfirmasi, patient_array[i].bobot)
 		}
+		fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
 	}
 	fmt.Printf("Jumlah Data : %d\n", patient_length)
 }
 
+// func searchIDPatient(patient_arrayy patients, patient_length int, id_patient int) {
+// 	var found_patient patients
+// }
+
 func assign_value(filtered_patient_array *patients, patient_array patients, idx, itr int) {
-	filtered_patient_array[idx].id = patient[itr].id
-	filtered_patient_array[idx].nama = patient[itr].nama
-	filtered_patient_array[idx].no_telp = patient[itr].no_telp
-	filtered_patient_array[idx].umur = patient[itr].umur
-	filtered_patient_array[idx].email = patient[itr].email
-	filtered_patient_array[idx].kontak_erat = patient[itr].kontak_erat
-	filtered_patient_array[idx].suspect = patient[itr].suspect
-	filtered_patient_array[idx].probable = patient[itr].probable
-	filtered_patient_array[idx].konfirmasi = patient[itr].konfirmasi
-	filtered_patient_array[idx].bobot = patient[itr].bobot
+	filtered_patient_array[idx].id = patient_array[itr].id
+	filtered_patient_array[idx].nama = patient_array[itr].nama
+	filtered_patient_array[idx].no_telp = patient_array[itr].no_telp
+	filtered_patient_array[idx].umur = patient_array[itr].umur
+	filtered_patient_array[idx].email = patient_array[itr].email
+	filtered_patient_array[idx].kontak_erat = patient_array[itr].kontak_erat
+	filtered_patient_array[idx].suspect = patient_array[itr].suspect
+	filtered_patient_array[idx].probable = patient_array[itr].probable
+	filtered_patient_array[idx].konfirmasi = patient_array[itr].konfirmasi
+	filtered_patient_array[idx].bobot = patient_array[itr].bobot
 }
 
 func filter_array(patient_array patients, filtered_patient_array *patients, filtered_patient_length *int, filteredOption int) {

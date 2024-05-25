@@ -28,6 +28,8 @@ func main() {
 
 			if show_data_option == 1 {
 				// Tampilkan semua data
+				// var sort_option int
+				// fmt.Println("Tampilkan ")
 				fmt.Println("\n==== Daftar Data Pasien ====")
 				showData(patient, patients_length)
 			} else if show_data_option == 2 {
@@ -103,6 +105,64 @@ func main() {
 				}
 			} else if show_data_option == 3 {
 				// Cari data pasien
+				var search_option int
+				fmt.Println("\nCari Berdasarkan\n1. ID\n2. Nama\n3. Umur\n4. Email\n5.Nomor Telepon\n6. Bobot Prioritas\n7.Kembali")
+				fmt.Print("Masukan : ")
+				fmt.Scan(&search_option)
+
+				if search_option == 1 {
+					// Cari pasien berdasarkan ID
+					var left, mid, right, id_found, search_data_patient int
+
+					fmt.Println("\nMasukkan ID Pasien : ")
+					fmt.Scan(&search_data_patient)
+
+					// Binary Search
+					left = patient[0].id
+					right = patient[patients_length-1].id
+					id_found = -1
+
+					for left <= right && id_found == -1 {
+						mid = (left + right) / 2
+						if search_data_patient < mid {
+							right = mid - 1
+						} else if search_data_patient > mid {
+							left = mid + 1
+						} else {
+							id_found = mid
+						}
+					}
+
+					if id_found == -1 {
+						fmt.Println("\nID Pasien tidak ditemukan")
+					} else {
+						fmt.Printf("\n==== Daftar Data Pasien dengan ID %d ====\n", id_found)
+						// .......
+					}
+
+				} else if search_option == 2 {
+					// Cari pasien berdasarkan Nama
+				} else if search_option == 3 {
+					// Cari pasien berdasarkan Umur
+				} else if search_option == 4 {
+					// Cari pasien berdasarkan Email
+				} else if search_option == 5 {
+					// Cari pasien berdasarkan Nomor Telepon
+				} else if search_option == 6 {
+					// Cari pasien berdasarkan Bobot Prioritas
+				} else if search_option == 7 {
+					fmt.Println("\nOpsi Penampilan Data : ")
+					fmt.Println("1. Tampilkan semua data\n2. Filter Data\n3. Cari Data\n4. Edit Data\n5. Hapus Data\n6. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&show_data_option)
+				} else {
+					if search_option != 1 && search_option != 2 && search_option != 3 && search_option != 4 && search_option != 5 && search_option != 6 && search_option != 7 {
+						fmt.Println("Masukan tidak valid !")
+						fmt.Println("Cari Berdasarkan\n1. ID\n2. Nama\n3. Umur\n4. Email\n5.Nomor Telepon\n6. Bobot Prioritas\n7.Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&search_option)
+					}
+				}
 			} else if show_data_option == 4 {
 				// Edit data pasien
 				var id_patient, idx_patient, itr int
@@ -155,6 +215,7 @@ func main() {
 			menuMessage()
 			fmt.Scan(&option_choose)
 		} else if option_choose == 3 {
+			// return
 			os.Exit(1)
 		} else {
 			for option_choose != 1 && option_choose != 2 && option_choose != 3 {
