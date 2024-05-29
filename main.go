@@ -27,80 +27,257 @@ func main() {
 			fmt.Scan(&show_data_option)
 
 			if show_data_option == 1 {
-				// Tampilkan semua data
-				// var sort_option int
-				// fmt.Println("Tampilkan ")
-				fmt.Println("\n==== Daftar Data Pasien ====")
-				showData(patient, patients_length)
+				var sort_col int
+				fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Nomor Telepon\n6. Bobot\n7. Kembali")
+				fmt.Print("Masukan : ")
+				fmt.Scan(&sort_col)
+
+				if sort_col == 1 {
+					var sort_opt int
+					fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&sort_opt)
+
+					if sort_opt == 1 {
+						// Asending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 2 {
+						// Descending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 3 {
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&sort_col)
+					} else {
+						for sort_opt != 1 && sort_opt != 2 && sort_opt != 3 {
+							fmt.Println("\nMasukan Tidak Valid !")
+							fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+							fmt.Print("Masukan : ")
+							fmt.Scan(&sort_opt)
+						}
+					}
+				} else if sort_col == 2 {
+					var sort_opt int
+					fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&sort_opt)
+
+					if sort_opt == 1 {
+						// Asending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 2 {
+						// Descending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 3 {
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&sort_col)
+					} else {
+						for sort_opt != 1 && sort_opt != 2 && sort_opt != 3 {
+							fmt.Println("\nMasukan Tidak Valid !")
+							fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+							fmt.Print("Masukan : ")
+							fmt.Scan(&sort_opt)
+						}
+					}
+				} else if sort_col == 3 {
+					var sort_opt int
+					fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&sort_opt)
+
+					if sort_opt == 1 {
+						// Asending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 2 {
+						// Descending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 3 {
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&sort_col)
+					} else {
+						for sort_opt != 1 && sort_opt != 2 && sort_opt != 3 {
+							fmt.Println("\nMasukan Tidak Valid !")
+							fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+							fmt.Print("Masukan : ")
+							fmt.Scan(&sort_opt)
+						}
+					}
+				} else if sort_col == 4 {
+					var sort_opt int
+					fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&sort_opt)
+
+					if sort_opt == 1 {
+						// Asending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 2 {
+						// Descending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 3 {
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&sort_col)
+					} else {
+						for sort_opt != 1 && sort_opt != 2 && sort_opt != 3 {
+							fmt.Println("\nMasukan Tidak Valid !")
+							fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+							fmt.Print("Masukan : ")
+							fmt.Scan(&sort_opt)
+						}
+					}
+				} else if sort_col == 5 {
+					var sort_opt int
+					fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&sort_opt)
+
+					if sort_opt == 1 {
+						// Asending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 2 {
+						// Descending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 3 {
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&sort_col)
+					} else {
+						for sort_opt != 1 && sort_opt != 2 && sort_opt != 3 {
+							fmt.Println("\nMasukan Tidak Valid !")
+							fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+							fmt.Print("Masukan : ")
+							fmt.Scan(&sort_opt)
+						}
+					}
+				} else if sort_col == 6 {
+					var sort_opt int
+					fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&sort_opt)
+
+					if sort_opt == 1 {
+						// Asending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 2 {
+						// Descending
+						var sorted_patient patients
+						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
+						showData(sorted_patient, patients_length)
+					} else if sort_opt == 3 {
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&sort_col)
+					} else {
+						for sort_opt != 1 && sort_opt != 2 && sort_opt != 3 {
+							fmt.Println("\nMasukan Tidak Valid !")
+							fmt.Println("\n1. Ascending\n2. Descending\n3. Kembali")
+							fmt.Print("Masukan : ")
+							fmt.Scan(&sort_opt)
+						}
+					}
+				} else if sort_col == 7 {
+					fmt.Println("\nOpsi Penampilan Data : ")
+					fmt.Println("1. Tampilkan semua data\n2. Filter Data\n3. Cari Data\n4. Edit Data\n5. Hapus Data\n6. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&show_data_option)
+				} else {
+					for sort_col != 1 && sort_col != 2 {
+						fmt.Println("Masukan tidak valid !")
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Nomor Telepon\n6. Bobot\n7. Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&sort_col)
+					}
+				}
 			} else if show_data_option == 2 {
 				// filter data
-				for show_data_option == 2 {
-					var filtered_option_choose int
+				var filtered_option_choose int
 
-					fmt.Println("\nFilter data berdasarkan :")
-					fmt.Println("1. Gejala\n2. Bobot Prioritas\n3. Kembali")
+				fmt.Println("\nFilter data berdasarkan :")
+				fmt.Println("1. Gejala\n2. Kembali")
+				fmt.Print("Masukan : ")
+				fmt.Scan(&filtered_option_choose)
+
+				if filtered_option_choose == 1 {
+					// filter data berdasarkan gejala
+					var symptoms_option_choose int
+					var filtered_patient patients
+					var filtered_patient_length int = 0
+
+					fmt.Println("Tampilkan data pasien dengan gejala : ")
+					fmt.Println("1. Kontak Erat\n2. Suspect\n3. Probable\n4. Konfirmasi\n5. Kembali")
 					fmt.Print("Masukan : ")
-					fmt.Scan(&filtered_option_choose)
+					fmt.Scan(&symptoms_option_choose)
 
-					if filtered_option_choose == 1 {
-						// filter data berdasarkan gejala
-						var symptoms_option_choose int
-						var filtered_patient patients
-						var filtered_patient_length int = 0
-
-						fmt.Println("Tampilkan data pasien dengan gejala : ")
-						fmt.Println("1. Kontak Erat\n2. Suspect\n3. Probable\n4. Konfirmasi\n5. Kembali")
+					if symptoms_option_choose == 1 {
+						// tampilkan data pasien yang kontak erat
+						filter_array(patient, &filtered_patient, &filtered_patient_length, 1)
+						fmt.Println("\n==== Daftar Data Pasien Dengan Gejala Kontak Erat ====")
+						showData(filtered_patient, filtered_patient_length)
+					} else if symptoms_option_choose == 2 {
+						// tampilkan data pasien yang suspect
+						filter_array(patient, &filtered_patient, &filtered_patient_length, 2)
+						fmt.Println("\n==== Daftar Data Pasien Dengan Gejala Suspect ====")
+						showData(filtered_patient, filtered_patient_length)
+					} else if symptoms_option_choose == 3 {
+						// tampilkan data pasien yang probable
+						filter_array(patient, &filtered_patient, &filtered_patient_length, 3)
+						fmt.Println("\n==== Daftar Data Pasien Dengan Gejala Probable ====")
+						showData(filtered_patient, filtered_patient_length)
+					} else if symptoms_option_choose == 4 {
+						// tampilkan data pasien yang konfirmasi
+						filter_array(patient, &filtered_patient, &filtered_patient_length, 4)
+						fmt.Println("\n==== Daftar Data Pasien Dengan Gejala Terkonfirmasi Covid ====")
+						showData(filtered_patient, filtered_patient_length)
+					} else if symptoms_option_choose == 5 {
+						fmt.Println("\nFilter data berdasarkan :")
+						fmt.Println("1. Gejala\n2. Bobot Prioritas\n3. Kembali")
 						fmt.Print("Masukan : ")
-						fmt.Scan(&symptoms_option_choose)
-
-						if symptoms_option_choose == 1 {
-							// tampilkan data pasien yang kontak erat
-							filter_array(patient, &filtered_patient, &filtered_patient_length, 1)
-							fmt.Println("\n==== Daftar Data Pasien Dengan Gejala Kontak Erat ====")
-							showData(filtered_patient, filtered_patient_length)
-						} else if symptoms_option_choose == 2 {
-							// tampilkan data pasien yang suspect
-							filter_array(patient, &filtered_patient, &filtered_patient_length, 2)
-							fmt.Println("\n==== Daftar Data Pasien Dengan Gejala Suspect ====")
-							showData(filtered_patient, filtered_patient_length)
-						} else if symptoms_option_choose == 3 {
-							// tampilkan data pasien yang probable
-							filter_array(patient, &filtered_patient, &filtered_patient_length, 3)
-							fmt.Println("\n==== Daftar Data Pasien Dengan Gejala Probable ====")
-							showData(filtered_patient, filtered_patient_length)
-						} else if symptoms_option_choose == 4 {
-							// tampilkan data pasien yang konfirmasi
-							filter_array(patient, &filtered_patient, &filtered_patient_length, 4)
-							fmt.Println("\n==== Daftar Data Pasien Dengan Gejala Terkonfirmasi Covid ====")
-							showData(filtered_patient, filtered_patient_length)
-						} else if symptoms_option_choose == 5 {
-							fmt.Println("\nFilter data berdasarkan :")
-							fmt.Println("1. Gejala\n2. Bobot Prioritas\n3. Kembali")
-							fmt.Print("Masukan : ")
-							fmt.Scan(&filtered_option_choose)
-						} else {
-							for symptoms_option_choose != 1 && symptoms_option_choose != 2 && symptoms_option_choose != 3 && symptoms_option_choose != 4 {
-								fmt.Println("Masukan tidak valid !")
-								fmt.Println("Tampilkan data pasien dengan gejala : ")
-								fmt.Println("1. Kontak Erat\n2. Suspect\n3. Probable\n4. Konfirmasi\n5. Kembali")
-								fmt.Print("Masukan : ")
-								fmt.Scan(&symptoms_option_choose)
-							}
-						}
-					} else if filtered_option_choose == 2 {
-						// Filter data berdasarkan bobot prioritas
-					} else if filtered_option_choose == 3 {
-						fmt.Println("\nOpsi Penampilan Data : ")
-						fmt.Println("1. Tampilkan semua data\n2. Filter Data\n3. Cari Data\n4. Edit Data\n5. Hapus Data\n6. Kembali")
-						fmt.Print("Masukan : ")
-						fmt.Scan(&show_data_option)
+						fmt.Scan(&filtered_option_choose)
 					} else {
-						for filtered_option_choose != 1 && filtered_option_choose != 2 && filtered_option_choose != 3 {
-							fmt.Println("Inputan tidak valid !")
-							fmt.Println("1. Gejala\n2. Bobot Prioritas\n3. Kembali")
+						for symptoms_option_choose != 1 && symptoms_option_choose != 2 && symptoms_option_choose != 3 && symptoms_option_choose != 4 {
+							fmt.Println("Masukan tidak valid !")
+							fmt.Println("Tampilkan data pasien dengan gejala : ")
+							fmt.Println("1. Kontak Erat\n2. Suspect\n3. Probable\n4. Konfirmasi\n5. Kembali")
 							fmt.Print("Masukan : ")
-							fmt.Scan(&filtered_option_choose)
+							fmt.Scan(&symptoms_option_choose)
 						}
+					}
+				} else if filtered_option_choose == 2 {
+					fmt.Println("\nOpsi Penampilan Data : ")
+					fmt.Println("1. Tampilkan semua data\n2. Filter Data\n3. Cari Data\n4. Edit Data\n5. Hapus Data\n6. Kembali")
+					fmt.Print("Masukan : ")
+					fmt.Scan(&show_data_option)
+				} else {
+					for filtered_option_choose != 1 && filtered_option_choose != 2 {
+						fmt.Println("Inputan tidak valid !")
+						fmt.Println("1. Gejala\n2. Kembali")
+						fmt.Print("Masukan : ")
+						fmt.Scan(&filtered_option_choose)
 					}
 				}
 			} else if show_data_option == 3 {
@@ -137,9 +314,15 @@ func main() {
 						fmt.Println("\nID Pasien tidak ditemukan")
 					} else {
 						fmt.Printf("\n==== Daftar Data Pasien dengan ID %d ====\n", id_found)
-						// .......
+						var idx = id_found - 1
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("| %-2s | %-20s | %-8s | %-20s | %-20s | %-15s | %-13s | %-13s | %-13s | %-5s |\n", "ID", "Nama", "Umur", "Email", "No. Telp", "Kontak Erat", "suspect", "Probable", "Konfirmasi", "Bobot")
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("| %-2d | %-20s | %-8d | %-20s | %-20d |", patient[idx].id, patient[idx].nama, patient[idx].umur, patient[idx].email, patient[idx].no_telp)
+						fmt.Printf(" %-15t | %-13t | %-13t | %-13t | %-5d |\n", patient[idx].kontak_erat, patient[idx].suspect, patient[idx].probable, patient[idx].konfirmasi, patient[idx].bobot)
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("Jumlah Data : %d\n", 1)
 					}
-
 				} else if search_option == 2 {
 					// Cari pasien berdasarkan Nama
 				} else if search_option == 3 {
@@ -216,7 +399,7 @@ func main() {
 			fmt.Scan(&option_choose)
 		} else if option_choose == 3 {
 			// return
-			os.Exit(1)
+			os.Exit(0)
 		} else {
 			for option_choose != 1 && option_choose != 2 && option_choose != 3 {
 				fmt.Println("Inputan tidak valid !")

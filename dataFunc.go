@@ -140,10 +140,6 @@ func showData(patient_array patients, patient_length int) {
 	fmt.Printf("Jumlah Data : %d\n", patient_length)
 }
 
-// func searchIDPatient(patient_arrayy patients, patient_length int, id_patient int) {
-// 	var found_patient patients
-// }
-
 func assign_value(filtered_patient_array *patients, patient_array patients, idx, itr int) {
 	filtered_patient_array[idx].id = patient_array[itr].id
 	filtered_patient_array[idx].nama = patient_array[itr].nama
@@ -312,4 +308,168 @@ func editSymptomsPatient(patient_array *patients, patient_length int, idx_patien
 			fmt.Scan(&patient_input)
 		}
 	}
+}
+
+func selectionSort(patient_array patients, patient_length, sort_opt, sort_col int) patients {
+	var idx, pass, i int
+	var temp patient_data
+
+	if sort_col == 1 {
+		// Kolom ID
+		for pass = 0; pass < patient_length-1; pass++ {
+			idx = pass
+			if sort_opt == 1 {
+				// Ascending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].id > patient_array[i].id {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			} else if sort_opt == 2 {
+				// Descending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].id < patient_array[i].id {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			}
+		}
+	} else if sort_col == 2 {
+		// Kolom Nama
+		for pass = 0; pass < patient_length-1; pass++ {
+			idx = pass
+			if sort_opt == 1 {
+				// Ascending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].nama > patient_array[i].nama {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			} else if sort_opt == 2 {
+				// Descending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].nama < patient_array[i].nama {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			}
+		}
+	} else if sort_col == 3 {
+		// Kolom Umur
+		for pass = 0; pass < patient_length-1; pass++ {
+			idx = pass
+			if sort_opt == 1 {
+				// Ascending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].umur > patient_array[i].umur {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			} else if sort_opt == 2 {
+				// Descending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].umur < patient_array[i].umur {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			}
+		}
+	} else if sort_col == 4 {
+		// Kolom Email
+		for pass = 0; pass < patient_length-1; pass++ {
+			idx = pass
+			if sort_opt == 1 {
+				// Ascending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].email > patient_array[i].email {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			} else if sort_opt == 2 {
+				// Descending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].email < patient_array[i].email {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			}
+		}
+	} else if sort_col == 5 {
+		// Kolom Nomor Telepon
+		for pass = 0; pass < patient_length-1; pass++ {
+			idx = pass
+			if sort_opt == 1 {
+				// Ascending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].no_telp > patient_array[i].no_telp {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			} else if sort_opt == 2 {
+				// Descending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].no_telp < patient_array[i].no_telp {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			}
+		}
+	} else if sort_col == 6 {
+		// Kolom Bobot
+		for pass = 0; pass < patient_length-1; pass++ {
+			idx = pass
+			if sort_opt == 1 {
+				// Ascending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].bobot > patient_array[i].bobot {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			} else if sort_opt == 2 {
+				// Descending
+				for i = pass + 1; i < patient_length; i++ {
+					if patient_array[idx].bobot < patient_array[i].bobot {
+						idx = i
+					}
+				}
+				temp = patient_array[idx]
+				patient_array[idx] = patient_array[pass]
+				patient_array[pass] = temp
+			}
+		}
+	}
+	return patient_array
 }
