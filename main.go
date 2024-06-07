@@ -49,7 +49,7 @@ func main() {
 						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
 						showData(sorted_patient, patients_length)
 					} else if sort_opt == 3 {
-						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Nomor Telepon\n6. Bobot\n7. Kembali")
 						fmt.Print("Masukan : ")
 						fmt.Scan(&sort_col)
 					} else {
@@ -77,7 +77,7 @@ func main() {
 						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
 						showData(sorted_patient, patients_length)
 					} else if sort_opt == 3 {
-						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Nomor Telepon\n6. Bobot\n7. Kembali")
 						fmt.Print("Masukan : ")
 						fmt.Scan(&sort_col)
 					} else {
@@ -105,7 +105,7 @@ func main() {
 						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
 						showData(sorted_patient, patients_length)
 					} else if sort_opt == 3 {
-						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Nomor Telepon\n6. Bobot\n7. Kembali")
 						fmt.Print("Masukan : ")
 						fmt.Scan(&sort_col)
 					} else {
@@ -133,7 +133,7 @@ func main() {
 						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
 						showData(sorted_patient, patients_length)
 					} else if sort_opt == 3 {
-						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Nomor Telepon\n6. Bobot\n7. Kembali")
 						fmt.Print("Masukan : ")
 						fmt.Scan(&sort_col)
 					} else {
@@ -161,7 +161,7 @@ func main() {
 						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
 						showData(sorted_patient, patients_length)
 					} else if sort_opt == 3 {
-						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Nomor Telepon\n6. Bobot\n7. Kembali")
 						fmt.Print("Masukan : ")
 						fmt.Scan(&sort_col)
 					} else {
@@ -189,7 +189,7 @@ func main() {
 						sorted_patient = selectionSort(patient, patients_length, sort_opt, sort_col)
 						showData(sorted_patient, patients_length)
 					} else if sort_opt == 3 {
-						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Kembali")
+						fmt.Println("\nOpsi Pengurutan :\n1. Data Terakhir Ditambahkan\n2. Nama\n3. Umur\n4. Email\n5. Nomor Telepon\n6. Bobot\n7. Kembali")
 						fmt.Print("Masukan : ")
 						fmt.Scan(&sort_col)
 					} else {
@@ -283,37 +283,29 @@ func main() {
 			} else if show_data_option == 3 {
 				// Cari data pasien
 				var search_option int
-				fmt.Println("\nCari Berdasarkan\n1. ID\n2. Nama\n3. Umur\n4. Email\n5.Nomor Telepon\n6. Bobot Prioritas\n7.Kembali")
+				fmt.Println("\nCari Berdasarkan\n1. ID\n2. Email\n3.Nomor Telepon\n4.Kembali")
 				fmt.Print("Masukan : ")
 				fmt.Scan(&search_option)
 
 				if search_option == 1 {
 					// Cari pasien berdasarkan ID
-					var left, mid, right, id_found, search_data_patient int
+					var id_found, search_data_patient, itr int
 
 					fmt.Println("\nMasukkan ID Pasien : ")
 					fmt.Scan(&search_data_patient)
-
-					// Binary Search
-					left = patient[0].id
-					right = patient[patients_length-1].id
 					id_found = -1
 
-					for left <= right && id_found == -1 {
-						mid = (left + right) / 2
-						if search_data_patient < mid {
-							right = mid - 1
-						} else if search_data_patient > mid {
-							left = mid + 1
-						} else {
-							id_found = mid
+					// Sequential Search
+					for itr = 0; itr < patients_length; itr++ {
+						if search_data_patient == patient[itr].id {
+							id_found = patient[itr].id
 						}
 					}
 
 					if id_found == -1 {
 						fmt.Println("\nID Pasien tidak ditemukan")
 					} else {
-						fmt.Printf("\n==== Daftar Data Pasien dengan ID %d ====\n", id_found)
+						fmt.Printf("\n==== Data Pasien dengan ID %d ====\n", id_found)
 						var idx = id_found - 1
 						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
 						fmt.Printf("| %-2s | %-20s | %-8s | %-20s | %-20s | %-15s | %-13s | %-13s | %-13s | %-5s |\n", "ID", "Nama", "Umur", "Email", "No. Telp", "Kontak Erat", "suspect", "Probable", "Konfirmasi", "Bobot")
@@ -324,16 +316,63 @@ func main() {
 						fmt.Printf("Jumlah Data : %d\n", 1)
 					}
 				} else if search_option == 2 {
-					// Cari pasien berdasarkan Nama
-				} else if search_option == 3 {
-					// Cari pasien berdasarkan Umur
-				} else if search_option == 4 {
 					// Cari pasien berdasarkan Email
-				} else if search_option == 5 {
+					var itr, id_found int
+					var search_data_patient string
+
+					fmt.Println("\nMasukkan Email Pasien : ")
+					fmt.Scan(&search_data_patient)
+					id_found = -1
+
+					// Sequential Search
+					for itr = 0; itr < patients_length; itr++ {
+						if search_data_patient == patient[itr].email {
+							id_found = patient[itr].id
+						}
+					}
+
+					if id_found == -1 {
+						fmt.Println("\nID Pasien tidak ditemukan")
+					} else {
+						fmt.Printf("\n==== Data Pasien dengan Email %s ====\n", search_data_patient)
+						var idx = id_found - 1
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("| %-2s | %-20s | %-8s | %-20s | %-20s | %-15s | %-13s | %-13s | %-13s | %-5s |\n", "ID", "Nama", "Umur", "Email", "No. Telp", "Kontak Erat", "suspect", "Probable", "Konfirmasi", "Bobot")
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("| %-2d | %-20s | %-8d | %-20s | %-20d |", patient[idx].id, patient[idx].nama, patient[idx].umur, patient[idx].email, patient[idx].no_telp)
+						fmt.Printf(" %-15t | %-13t | %-13t | %-13t | %-5d |\n", patient[idx].kontak_erat, patient[idx].suspect, patient[idx].probable, patient[idx].konfirmasi, patient[idx].bobot)
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("Jumlah Data : %d\n", 1)
+					}
+				} else if search_option == 3 {
 					// Cari pasien berdasarkan Nomor Telepon
-				} else if search_option == 6 {
-					// Cari pasien berdasarkan Bobot Prioritas
-				} else if search_option == 7 {
+					var itr, id_found, search_data_patient int
+
+					fmt.Println("\nMasukkan Nomor Telepon Pasien : ")
+					fmt.Scan(&search_data_patient)
+					id_found = -1
+
+					// Sequential Search
+					for itr = 0; itr < patients_length; itr++ {
+						if search_data_patient == patient[itr].no_telp {
+							id_found = patient[itr].id
+						}
+					}
+
+					if id_found == -1 {
+						fmt.Println("\nID Pasien tidak ditemukan")
+					} else {
+						fmt.Printf("\n==== Data Pasien dengan Nomor Telepon %d ====\n", search_data_patient)
+						var idx = id_found - 1
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("| %-2s | %-20s | %-8s | %-20s | %-20s | %-15s | %-13s | %-13s | %-13s | %-5s |\n", "ID", "Nama", "Umur", "Email", "No. Telp", "Kontak Erat", "suspect", "Probable", "Konfirmasi", "Bobot")
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("| %-2d | %-20s | %-8d | %-20s | %-20d |", patient[idx].id, patient[idx].nama, patient[idx].umur, patient[idx].email, patient[idx].no_telp)
+						fmt.Printf(" %-15t | %-13t | %-13t | %-13t | %-5d |\n", patient[idx].kontak_erat, patient[idx].suspect, patient[idx].probable, patient[idx].konfirmasi, patient[idx].bobot)
+						fmt.Println("+----+----------------------+----------+----------------------+----------------------+-----------------+---------------+---------------+---------------+-------+")
+						fmt.Printf("Jumlah Data : %d\n", 1)
+					}
+				} else if search_option == 4 {
 					fmt.Println("\nOpsi Penampilan Data : ")
 					fmt.Println("1. Tampilkan semua data\n2. Filter Data\n3. Cari Data\n4. Edit Data\n5. Hapus Data\n6. Kembali")
 					fmt.Print("Masukan : ")
@@ -364,8 +403,8 @@ func main() {
 				}
 
 				if idx_patient != -1 {
-					editDataPatient(&patient, patients_length, id_patient-1)
-					editSymptomsPatient(&patient, patients_length, id_patient-1)
+					editDataPatient(&patient, patients_length, idx_patient)
+					editSymptomsPatient(&patient, patients_length, idx_patient)
 				} else {
 					fmt.Println("ID Pasien tidak ditemukan")
 				}

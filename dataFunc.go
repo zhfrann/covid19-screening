@@ -179,8 +179,24 @@ func filter_array(patient_array patients, filtered_patient_array *patients, filt
 }
 
 func deleteData(patient_array *patients, patient_length *int, id_patient int) bool {
-	if (id_patient <= 0) || id_patient > patient_array[*patient_length-1].id {
-		fmt.Println("Data pasien yang ingin dihapus tidak ada didalam rentang data pasien")
+	var itr, id_found int
+
+	id_found = -1
+
+	// Sequential Search
+	for itr = 0; itr < *patient_length; itr++ {
+		if patient_array[itr].id == id_patient {
+			id_found = id_patient
+		}
+	}
+
+	// if (id_patient <= 0) || id_patient > patient_array[*patient_length-1].id {
+	// 	fmt.Println("Data pasien yang ingin dihapus tidak ada didalam rentang data pasien")
+	// 	return false
+	// }
+
+	if id_found == -1 {
+		fmt.Println("Data pasien tidak ditemukan")
 		return false
 	} else {
 		var newLength, indexLoop int
